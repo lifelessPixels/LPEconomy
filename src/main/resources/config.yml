@@ -1,0 +1,3 @@
+default-currency-identifier: coins
+default-currency-readable-name: coins
+default-currency-default-balance: 100

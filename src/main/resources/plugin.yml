@@ -1,0 +1,14 @@
+name: LPEconomy
+main: pl.lifelesspixels.lpeconomy.LPEconomy
+version: 0.1
+api-version: 1.19
+depend: [LPDataManager]
+commands:
+  balance:
+    description: Allows to check player's balance
+    aliases: [bal]
+permissions:
+  lpeconomy.command.balance.own:
+    default: true
+  lpeconomy.command.balance.others:
+    default: op
