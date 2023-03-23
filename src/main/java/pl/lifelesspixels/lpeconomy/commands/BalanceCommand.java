@@ -85,7 +85,7 @@ public class BalanceCommand implements CommandExecutor {
     }
 
     private void sendUsage(CommandSender sender, String alias) {
-        sender.sendMessage(ChatColor.RED + "Usage: " + ChatColor.RESET + "/" + alias + " [player] [currency]");
+        sender.sendMessage(ChatColor.RED + "Usage: " + ChatColor.RESET + "/" + alias + " [player]");
     }
 
     private void sendPlayerNotFound(CommandSender sender, String playerName) {
