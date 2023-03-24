@@ -9,6 +9,7 @@ import pl.lifelesspixels.lpeconomy.LPEconomy;
 import pl.lifelesspixels.lpeconomy.data.Currency;
 import pl.lifelesspixels.lpeconomy.data.PlayerAccount;
 import pl.lifelesspixels.lpeconomy.data.PlayerAccounts;
+import pl.lifelesspixels.lputilities.commands.CommandUtils;
 
 public class BalanceCommand implements CommandExecutor {
 
@@ -55,7 +56,7 @@ public class BalanceCommand implements CommandExecutor {
 
             // check if player exists
             if(player == null) {
-                sendPlayerNotFound(sender, playerName);
+                CommandUtils.sendPlayerNotFound(sender, playerName);
                 return true;
             }
 
@@ -65,7 +66,7 @@ public class BalanceCommand implements CommandExecutor {
                 balance = accounts.getAccountFor(player).getCurrencyBalance(defaultCurrency);
             } else {
                 if(!accounts.hasDatabaseAccountFor(player)) {
-                    sendPlayerNotFound(sender, playerName);
+                    CommandUtils.sendPlayerNotFound(sender, playerName);
                     return true;
                 }
 
@@ -80,17 +81,8 @@ public class BalanceCommand implements CommandExecutor {
             return true;
         }
 
-        sendUsage(sender, alias);
+        CommandUtils.sendUsage(sender, alias, "[player]");
         return true;
-    }
-
-    private void sendUsage(CommandSender sender, String alias) {
-        sender.sendMessage(ChatColor.RED + "Usage: " + ChatColor.RESET + "/" + alias + " [player]");
-    }
-
-    private void sendPlayerNotFound(CommandSender sender, String playerName) {
-        sender.sendMessage(ChatColor.RED + "Cannot fetch balance for player " + ChatColor.RESET +
-                playerName + ChatColor.RED + ", no such player found");
     }
 
 }

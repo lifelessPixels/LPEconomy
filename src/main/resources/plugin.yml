@@ -2,7 +2,7 @@ name: LPEconomy
 main: pl.lifelesspixels.lpeconomy.LPEconomy
 version: 0.1
 api-version: 1.19
-depend: [LPDataManager]
+depend: [LPUtilities, LPDataManager]
 commands:
   balance:
     description: Allows to check player's balance
