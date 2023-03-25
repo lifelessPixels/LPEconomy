@@ -11,6 +11,9 @@ commands:
     description: Used to add balance for specified player
   setbalance:
     description: Used to set balance for specified player
+  transferbalance:
+    description: Used to transfer balance from player to player
+    aliases: [transfer, donate, pay]
 permissions:
   lpeconomy.command.balance.own:
     default: true
@@ -20,3 +23,5 @@ permissions:
     default: op
   lpeconomy.command.setbalance:
     default: op
+  lpeconomy.command.transferbalance:
+    default: true

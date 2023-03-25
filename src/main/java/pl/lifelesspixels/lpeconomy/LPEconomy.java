@@ -7,6 +7,7 @@ import pl.lifelesspixels.lpdatamanager.LPDataManager;
 import pl.lifelesspixels.lpeconomy.commands.AddBalanceCommand;
 import pl.lifelesspixels.lpeconomy.commands.BalanceCommand;
 import pl.lifelesspixels.lpeconomy.commands.SetBalanceCommand;
+import pl.lifelesspixels.lpeconomy.commands.TransferBalanceCommand;
 import pl.lifelesspixels.lpeconomy.data.Currencies;
 import pl.lifelesspixels.lpeconomy.data.PlayerAccounts;
 
@@ -38,6 +39,7 @@ public class LPEconomy extends JavaPlugin implements Listener {
         Objects.requireNonNull(getCommand("balance")).setExecutor(new BalanceCommand());
         Objects.requireNonNull(getCommand("addbalance")).setExecutor(new AddBalanceCommand());
         Objects.requireNonNull(getCommand("setbalance")).setExecutor(new SetBalanceCommand());
+        Objects.requireNonNull(getCommand("transferbalance")).setExecutor(new TransferBalanceCommand());
 
         // prefetch cache for online players
         for(Player player : getServer().getOnlinePlayers())
