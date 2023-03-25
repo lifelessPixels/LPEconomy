@@ -5,10 +5,14 @@ api-version: 1.19
 depend: [LPUtilities, LPDataManager]
 commands:
   balance:
-    description: Allows to check player's balance
+    description: Used to check player's balance
     aliases: [bal]
+  addbalance:
+    description: Used to add balance for specified player
 permissions:
   lpeconomy.command.balance.own:
     default: true
   lpeconomy.command.balance.others:
+    default: op
+  lpeconomy.command.addbalance:
     default: op

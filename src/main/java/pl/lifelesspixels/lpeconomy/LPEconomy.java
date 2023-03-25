@@ -4,6 +4,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import pl.lifelesspixels.lpdatamanager.LPDataManager;
+import pl.lifelesspixels.lpeconomy.commands.AddBalanceCommand;
 import pl.lifelesspixels.lpeconomy.commands.BalanceCommand;
 import pl.lifelesspixels.lpeconomy.data.Currencies;
 import pl.lifelesspixels.lpeconomy.data.PlayerAccounts;
@@ -34,6 +35,7 @@ public class LPEconomy extends JavaPlugin implements Listener {
 
         // register commands
         Objects.requireNonNull(getCommand("balance")).setExecutor(new BalanceCommand());
+        Objects.requireNonNull(getCommand("addbalance")).setExecutor(new AddBalanceCommand());
 
         // prefetch cache for online players
         for(Player player : getServer().getOnlinePlayers())
