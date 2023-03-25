@@ -29,13 +29,13 @@ public class Currencies {
         }
         String readableName = Objects.requireNonNull(configuration.getString("default-currency-readable-name"));
 
-        if(!configuration.contains("default-currency-default-balance") || !configuration.isLong("default-currency-default-balance")) {
+        if(!configuration.contains("default-currency-default-balance") || !configuration.isInt("default-currency-default-balance")) {
             logger.severe("missing or invalid default currency default balance in plugin.yml");
             loadFallbackDefaultCurrency();
             return;
         }
 
-        long defaultBalance = configuration.getLong("default-currency-default-balance");
+        long defaultBalance = configuration.getInt("default-currency-default-balance");
         if(defaultBalance < 0) {
             logger.severe("default currency default balance cannot be negative");
             loadFallbackDefaultCurrency();
