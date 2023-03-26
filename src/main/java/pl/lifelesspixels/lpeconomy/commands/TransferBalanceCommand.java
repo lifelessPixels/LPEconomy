@@ -60,9 +60,14 @@ public class TransferBalanceCommand implements CommandExecutor {
             playerAccount.subtractFromDefaultCurrencyBalance(amountToTransfer);
             recipientAccount.addToDefaultCurrencyBalance(amountToTransfer);
 
+            String verb = switch (alias.toLowerCase()) {
+                case "donate" -> "donated";
+                case "pay" -> "paid";
+                default -> "transferred";
+            };
             Currency defaultCurrency = LPEconomy.getInstance().getCurrencies().getDefaultCurrency();
-            sender.sendMessage(ChatColor.GREEN + "Successfully transferred " + ChatColor.RESET + amountToTransfer + " " +
-                    defaultCurrency.getReadableName() + ChatColor.GREEN + " to " + ChatColor.RESET + recipientName);
+            sender.sendMessage(ChatColor.GREEN + "Successfully " + verb + " " + ChatColor.RESET + amountToTransfer +
+                    " " + defaultCurrency.getReadableName() + ChatColor.GREEN + " to " + ChatColor.RESET + recipientName);
             return true;
         }
 
