@@ -49,6 +49,11 @@ public class AddBalanceCommand implements CommandExecutor {
             sender.sendMessage(ChatColor.GREEN + "Successfully added " + ChatColor.RESET + balance + " " +
                     defaultCurrency.getReadableName() + ChatColor.GREEN + " to " + ChatColor.RESET + nickname +
                     ChatColor.GREEN + " account");
+
+            if(sender != player) {
+                player.sendMessage(balance + " " + defaultCurrency.getReadableName() + ChatColor.GREEN +
+                        " has been added to your account");
+            }
             return true;
         }
 

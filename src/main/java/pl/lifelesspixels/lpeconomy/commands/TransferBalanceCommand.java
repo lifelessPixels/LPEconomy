@@ -36,6 +36,11 @@ public class TransferBalanceCommand implements CommandExecutor {
                 return true;
             }
 
+            if(sender == recipient) {
+                sender.sendMessage(ChatColor.RED + "You cannot make yourself a target of balance transfer");
+                return true;
+            }
+
             long amountToTransfer = 0;
             try { amountToTransfer = Long.parseLong(args[1]); }
             catch (Exception e) {
@@ -65,9 +70,12 @@ public class TransferBalanceCommand implements CommandExecutor {
                 case "pay" -> "paid";
                 default -> "transferred";
             };
+
             Currency defaultCurrency = LPEconomy.getInstance().getCurrencies().getDefaultCurrency();
             sender.sendMessage(ChatColor.GREEN + "Successfully " + verb + " " + ChatColor.RESET + amountToTransfer +
                     " " + defaultCurrency.getReadableName() + ChatColor.GREEN + " to " + ChatColor.RESET + recipientName);
+            recipient.sendMessage(ChatColor.GREEN + "You received " + ChatColor.RESET + amountToTransfer + " " +
+                    defaultCurrency.getReadableName() + ChatColor.GREEN + " from " + ChatColor.RESET +  player.getName());
             return true;
         }
 

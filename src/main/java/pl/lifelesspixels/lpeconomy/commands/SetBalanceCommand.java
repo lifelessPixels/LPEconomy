@@ -48,6 +48,11 @@ public class SetBalanceCommand implements CommandExecutor {
             sender.sendMessage(ChatColor.GREEN + "Successfully set " + ChatColor.RESET + nickname +
                     ChatColor.GREEN + " balance to " + ChatColor.RESET + balance + " " +
                     defaultCurrency.getReadableName());
+
+            if(sender != player) {
+                player.sendMessage(ChatColor.GREEN + "Your balance has been set to " + ChatColor.RESET + balance + " " +
+                        defaultCurrency.getReadableName());
+            }
             return true;
         }
 
